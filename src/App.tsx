@@ -9,6 +9,8 @@ function App() {
   const [selectedGameType, setSelectedGameType] = useState<string | null>(null);
   const [selectedItemType, setSelectedItemType] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedPriceRange, setSelectedPriceRange] = useState<string>('All');
+  const [sortBy, setSortBy] = useState<string>('Featured');
 
   return (
     <div className="app-container">
@@ -31,11 +33,16 @@ function App() {
               setSelectedItemType={setSelectedItemType}
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
+              selectedPriceRange={selectedPriceRange}
+              setSelectedPriceRange={setSelectedPriceRange}
             />
             <CardGrid
               selectedGameType={selectedGameType}
               selectedItemType={selectedItemType}
               searchQuery={searchQuery}
+              selectedPriceRange={selectedPriceRange}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
             />
           </div>
         </div>

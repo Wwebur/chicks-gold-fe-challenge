@@ -10,35 +10,68 @@ interface CardGridProps {
     selectedGameType: string | null;
     selectedItemType: string | null;
     searchQuery: string;
+    selectedPriceRange: string;
+    sortBy: string;
+    setSortBy: (value: string) => void;
 }
 
 const CardGrid: React.FC<CardGridProps> = ({
     selectedGameType,
     selectedItemType,
-    searchQuery
+    searchQuery,
+    selectedPriceRange,
+    sortBy,
+    setSortBy
 }) => {
+    const priceMatch = (price: number) => {
+        if (selectedPriceRange === 'All') return true;
+        if (selectedPriceRange === '0-10') return price >= 0 && price <= 10;
+        if (selectedPriceRange === '10-100') return price > 10 && price <= 100;
+        if (selectedPriceRange === '100-500') return price > 100 && price <= 500;
+        if (selectedPriceRange === '500-1500') return price > 500 && price <= 1500;
+        if (selectedPriceRange === '1500+') return price > 1500;
+        return true;
+    };
+
     const filteredItems = items.filter((item) => {
         const matchGame = selectedGameType ? item.gameType === selectedGameType : true;
         const matchItemType = selectedItemType ? item.itemType === selectedItemType : true;
         const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchGame && matchItemType && matchSearch;
+        const matchPrice = priceMatch(item.price);
+        return matchGame && matchItemType && matchSearch && matchPrice;
     });
+
+    const sortedItems = [...filteredItems].sort((a, b) => {
+        if (sortBy === 'Featured') {
+            return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+        } else if (sortBy === 'Price: Low to High') {
+            return a.price - b.price;
+        } else if (sortBy === 'Price: High to Low') {
+            return b.price - a.price;
+        }
+        return 0;
+    });
+
+    const sortOptions = ["Featured", "Price: Low to High", "Price: High to Low"];
 
     return (
         <div className={styles["card-grid"]}>
             <div className={styles["card-sort-container"]}>
                 <p className={styles["card-pagination"]}>
-                    Showing {filteredItems.length} - from {items.length}
+                    Showing {sortedItems.length} - from {items.length}
                 </p>
                 <Dropdown
                     Icon={HiOutlineAdjustmentsHorizontal}
                     className={styles["card-sort"]}
                     head="Sort By"
-                    text="Featured"
+                    text={sortBy}
+                    options={sortOptions}
+                    selected={sortBy}
+                    onSelect={setSortBy}
                 />
             </div>
             <div className={styles["card-grid-content"]}>
-                {filteredItems.map((item) => (
+                {sortedItems.map((item) => (
                     <Card
                         key={item.id}
                         image={item.image}

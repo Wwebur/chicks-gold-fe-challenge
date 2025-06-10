@@ -11,6 +11,8 @@ interface FiltersProps {
     setSelectedItemType: (value: string | null) => void;
     searchQuery: string;
     setSearchQuery: (value: string) => void;
+    selectedPriceRange: string;
+    setSelectedPriceRange: (value: string) => void;
 }
 
 const Filters: React.FC<FiltersProps> = ({
@@ -19,9 +21,12 @@ const Filters: React.FC<FiltersProps> = ({
     selectedItemType,
     setSelectedItemType,
     searchQuery,
-    setSearchQuery
+    setSearchQuery,
+    selectedPriceRange,
+    setSelectedPriceRange
 }) => {
     const gameTypes = ["Diablo 2 Resurrected", "OSRS", "RS3"];
+    const priceRanges = ["All", "0-10", "10-100", "100-500", "500-1500", "1500+"];
 
     const itemTypesMap: { [key: string]: string[] } = {
         "Diablo 2 Resurrected": ["Runes", "Others"],
@@ -59,7 +64,10 @@ const Filters: React.FC<FiltersProps> = ({
                         Icon={GiSwapBag}
                         className={styles["drop-down-left"]}
                         head="Price"
-                        text="All"
+                        text={selectedPriceRange}
+                        options={priceRanges}
+                        selected={selectedPriceRange}
+                        onSelect={setSelectedPriceRange}
                     />
                     <Dropdown
                         Icon={GiFeather}
