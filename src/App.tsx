@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Filters from './components/Filters/Filters';
 import CardGrid from './components/CardGrid/CardGrid';
-import Footer from './components/Footer';
+import { Footer } from './components/Footer/Footer';
 
 interface CartItem {
   id: number;
