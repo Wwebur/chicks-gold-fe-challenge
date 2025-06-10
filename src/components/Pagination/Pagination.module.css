@@ -9,3 +9,23 @@
     display: flex;
     gap: 5px;
 }
+
+.nav-btn {
+  border: 2px solid var(--button-primary); /* red border */
+  background: transparent;
+  color: #fff;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.nav-btn.disabled,
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #444;
+}
