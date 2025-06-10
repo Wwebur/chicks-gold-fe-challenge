@@ -1,0 +1,39 @@
+.arrow-button, .page {
+    border: 1px solid var(--button-primary);
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+    outline: none;
+    color: var(--text-white);
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.page {
+    border: none;
+}
+
+.active {
+    background-color: var(--button-primary);
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 600px){
+    .arrow-button, .page {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+    }
+    
+    .page { 
+        font-size: 15px;
+    }
+
+    .arrow-button {
+        margin-inline: 10px;
+        font-size: 20px;
+    }
+}

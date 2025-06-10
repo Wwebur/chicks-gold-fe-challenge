@@ -1,0 +1,11 @@
+.pagination-container {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.pagination {
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+}
