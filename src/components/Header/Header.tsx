@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IoMenu, IoClose, IoPersonSharp } from "react-icons/io5";
 import { HiShoppingCart } from "react-icons/hi";
 
-import MenuItem from './MenuItem';
+import MenuItem from '../MenuItem/MenuItem';
 
 import styles from './Header.module.css';
 

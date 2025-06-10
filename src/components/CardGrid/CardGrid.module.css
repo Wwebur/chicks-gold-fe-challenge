@@ -53,7 +53,7 @@
     }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 100px) {
     .card-grid-content {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(5, 1fr);

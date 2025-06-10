@@ -1,0 +1,220 @@
+.detailsContainer {
+  display: flex;
+  gap: 2.5rem;
+  color: var(--text-white);
+  min-width: 800px;
+}
+
+.imageSection {
+  flex: 0 0 350px;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover .productImage {
+  transform: scale(1.02);
+}
+
+.statusBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--background-green);
+  font-weight: 500;
+}
+
+.statusDot {
+  font-size: 0.8rem;
+}
+
+.contentSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.header {
+  margin-bottom: 0.5rem;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brandSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-white-secondary);
+  font-size: 0.9rem;
+}
+
+.gameIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--background-green);
+  border-radius: 16px;
+  width: 40px;
+  height: 32px;
+  padding: 2px 6px;
+  box-sizing: border-box;
+}
+
+.gameIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.priceSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.currentPrice {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.originalPrice {
+  font-size: 1.2rem;
+  color: var(--text-ligth-grey);
+  text-decoration: line-through;
+}
+
+.discountBadge {
+  background: var(--background-green);
+  color: var(--background-dark-blue);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.descriptionSection {
+  color: var(--text-white-secondary);
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.descriptionSection h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text-white);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.descriptionSection p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.availabilitySection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.availabilityLabel {
+  color: var(--text-white-secondary);
+  font-size: 0.9rem;
+}
+
+.availabilityStatus {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.available {
+  color: var(--background-green);
+}
+
+.unavailable {
+  color: #fd4a4a;
+}
+
+.cartSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.addToCartButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--button-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addToCartButton:hover:not(.disabled) {
+  background: var(--background-blue);
+  transform: translateY(-1px);
+}
+
+.addToCartButton.disabled {
+  background: var(--button-secondary);
+  color: var(--text-button-secondary);
+  cursor: not-allowed;
+}
+
+.cartIcon {
+  font-size: 1.2rem;
+}

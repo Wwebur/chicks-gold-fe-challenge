@@ -1,73 +1,73 @@
 .app-container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
-    flex-grow: 1;
-    width: 100%;
-    position: relative;
-    min-height: 100vh;
-    background-color: var(--background-dark-blue);
+  flex-grow: 1;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background-dark-blue);
 }
 
 .main-background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top right;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top right;
 }
 
 .card-grid-container {
-    width: 100%;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    padding-top: 50px;
-    z-index: 2;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 50px;
+  z-index: 2;
 }
 
 .card-grid-content {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 20px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
 }
 
 .card-grid-title {
-    font-size: 25px;
-    font-weight: bold;
-    color: var(--text-white);
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--text-white);
 }
 
 @media screen and (min-width: 480px) {
-    .card-grid-container {
-        padding: 50px;
-        padding-top: 100px;
-    }
+  .card-grid-container {
+    padding: 50px;
+    padding-top: 100px;
+  }
 }
 
 @media screen and (min-width: 600px) {
-    .card-grid-content {
-        max-width: 590px;
-    }
+  .card-grid-content {
+    max-width: 590px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
-    .card-grid-content {
-        max-width: 840px;
-    }
+  .card-grid-content {
+    max-width: 840px;
+  }
 }
 
 @media screen and (min-width: 1500px) {
-    .card-grid-content {
-        max-width: 1200px;
-    }
+  .card-grid-content {
+    max-width: 1300px;
+  }
 }

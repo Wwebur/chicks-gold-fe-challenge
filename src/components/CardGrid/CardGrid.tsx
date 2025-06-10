@@ -111,6 +111,7 @@ const CardGrid: React.FC<CardGridProps> = ({
                         stockTooltip={item.stockTooltip}
                         description={item.description}
                         available={item.available}
+                        gameType={item.gameType}
                         onAdd={(quantity) => onAddToCart(item, quantity)}
                     />
                 ))}
