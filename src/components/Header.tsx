@@ -6,6 +6,10 @@ import MenuItem from './MenuItem';
 
 import styles from './Header.module.css';
 
+interface HeaderProps {
+    cartCount: number;
+}
+
 const navItems = [
     "Currency",
     "Items",
@@ -15,7 +19,7 @@ const navItems = [
     "Sell",
 ]
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ cartCount }) => {
     const [open, setOpen] = useState(false);
     const toggleOpen = () => {
         setOpen((prevState) => !prevState)
@@ -49,7 +53,7 @@ const Header: React.FC = () => {
             <div className={styles["nav-cart-container"]}>
                 <MenuItem text="USD" className={styles["display-web"]} />
                 <MenuItem
-                    text="Cart (5)"
+                    text={`Cart (${cartCount})`}
                     className={styles["display-web"]}
                     dropdown={false}
                     Icon={HiShoppingCart}

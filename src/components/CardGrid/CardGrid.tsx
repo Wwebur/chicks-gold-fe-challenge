@@ -6,6 +6,22 @@ import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import items from "../../data/items.json";
 import styles from "./CardGrid.module.css";
 
+interface Item {
+    id: number;
+    image: string;
+    title: string;
+    price: number;
+    originalPrice: number | null;
+    status: string;
+    stockStatus: string;
+    stockTooltip: string;
+    description: string;
+    available: boolean;
+    gameType: string;
+    itemType: string;
+    featured: boolean;
+}
+
 interface CardGridProps {
     selectedGameType: string | null;
     selectedItemType: string | null;
@@ -15,6 +31,7 @@ interface CardGridProps {
     setSortBy: (value: string) => void;
     currentPage: number;
     setCurrentPage: (value: number) => void;
+    onAddToCart: (item: Omit<Item, 'quantity'>, quantity: number) => void;
 }
 
 const CardGrid: React.FC<CardGridProps> = ({
@@ -25,7 +42,8 @@ const CardGrid: React.FC<CardGridProps> = ({
     sortBy,
     setSortBy,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
+    onAddToCart
 }) => {
     const priceMatch = (price: number) => {
         if (selectedPriceRange === 'All') return true;
@@ -93,6 +111,7 @@ const CardGrid: React.FC<CardGridProps> = ({
                         stockTooltip={item.stockTooltip}
                         description={item.description}
                         available={item.available}
+                        onAdd={(quantity) => onAddToCart(item, quantity)}
                     />
                 ))}
             </div>

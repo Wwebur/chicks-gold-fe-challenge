@@ -1,25 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Card.module.css";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
-const CardInput: React.FC = () => {
-    const [number, setNumber] = useState<number>(1);
+interface CardInputProps {
+    quantity: number;
+    setQuantity: (value: number) => void;
+}
+
+const CardInput: React.FC<CardInputProps> = ({ quantity, setQuantity }) => {
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNumber(Number(e.target.value));
+        setQuantity(Number(e.target.value));
     };
     const handleIncrease = () => {
-        setNumber(number + 1);
+        setQuantity(quantity + 1);
     };
     const handleDecrease = () => {
-        setNumber(number - 1);
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
     };
+
     return (
         <div className={styles["card-input-container"]}>
             <input
                 className={styles["card-input"]}
                 type="number"
                 name="number"
-                value={number}
+                value={quantity}
                 onChange={onChange}
             />
             <IoMdArrowDropup className={styles["caret-up"]} onClick={handleIncrease} />

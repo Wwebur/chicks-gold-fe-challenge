@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Filters from './components/Filters/Filters';
 import CardGrid from './components/CardGrid/CardGrid';
 import Footer from './components/Footer';
+
+interface CartItem {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  originalPrice: number | null;
+  status: string;
+  stockStatus: string;
+  stockTooltip: string;
+  description: string;
+  available: boolean;
+  quantity: number;
+}
 
 function App() {
   const [selectedGameType, setSelectedGameType] = useState<string | null>(null);
@@ -12,6 +26,31 @@ function App() {
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('All');
   const [sortBy, setSortBy] = useState<string>('Featured');
   const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  const handleAddToCart = (item: Omit<CartItem, 'quantity'>, quantity: number) => {
+    setCartItems(prevItems => {
+      const existingItemIndex = prevItems.findIndex(cartItem => cartItem.id === item.id);
+      
+      if (existingItemIndex !== -1) {
+        // Item exists in cart - update quantity
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: updatedItems[existingItemIndex].quantity + quantity
+        };
+        return updatedItems;
+      } else {
+        // Item not in cart - add new item
+        return [...prevItems, { ...item, quantity }];
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log("cartItems", cartItems);
+  }, [cartItems]);
 
   const handleSetSelectedGameType = (value: string | null) => {
     setSelectedGameType(value);
@@ -38,10 +77,9 @@ function App() {
     setCurrentPage(1);
   };
 
-
   return (
     <div className="app-container">
-      <Header />
+      <Header cartCount={cartItems.length} />
 
       <div className="main-content">
         <img
@@ -74,6 +112,7 @@ function App() {
               setSortBy={handleSetSortBy}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
+              onAddToCart={handleAddToCart}
             />
           </div>
         </div>

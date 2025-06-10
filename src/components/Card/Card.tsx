@@ -15,6 +15,7 @@ interface CardProps {
     stockTooltip?: string;
     description: string;
     available?: boolean;
+    onAdd?: (quantity: number) => void;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -27,20 +28,21 @@ const Card: React.FC<CardProps> = ({
     stockTooltip,
     description,
     available = true,
+    onAdd
 }) => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [shouldShowTooltip, setShouldShowTooltip] = useState(false);
     const descRef = useRef<HTMLDivElement>(null);
 
-    // Helper to check if the description is truncated
+    const [quantity, setQuantity] = useState<number>(1);
+
     const checkTruncation = () => {
         const el = descRef.current;
         if (!el) return false;
-        return el.scrollHeight > el.clientHeight + 1; // +1 for rounding
+        return el.scrollHeight > el.clientHeight + 1;
     };
 
     const handleMouseEnter = () => {
-        console.log("checkTruncation", checkTruncation());
         if (checkTruncation()) {
             setShouldShowTooltip(true);
             setShowTooltip(true);
@@ -50,7 +52,6 @@ const Card: React.FC<CardProps> = ({
         }
     };
     const handleMouseLeave = () => {
-        console.log("handleMouseLeave");
         setShowTooltip(false);
     };
 
@@ -72,7 +73,7 @@ const Card: React.FC<CardProps> = ({
                         </span>
                     )}
                 </div>
-                <CardInput />
+                <CardInput quantity={quantity} setQuantity={setQuantity} />
             </div>
             <div className={styles["card-tumbnail"]}>
                 <img
@@ -120,17 +121,20 @@ const Card: React.FC<CardProps> = ({
                 <button className={styles["button-details"]}>
                     Details
                 </button>
-                <button className={styles["button-add"]} disabled={!available}>
-                    <span>
-                        Add
-                    </span>
-                    <span className={styles["button-add-icon"]}>
-                        <IoMdCart />
-                    </span>
+                <button
+                    className={styles["button-add"]}
+                    disabled={!available}
+                    onClick={() => {
+                        onAdd?.(quantity);
+                        setQuantity(1);
+                    }}
+                >
+                    <span>Add</span>
+                    <span className={styles["button-add-icon"]}><IoMdCart /></span>
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Card;
