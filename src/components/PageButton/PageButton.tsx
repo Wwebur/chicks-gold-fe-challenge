@@ -1,47 +1,21 @@
 import React from "react";
-import {
-	IoIosArrowBack,
-	IoIosArrowForward,
-} from 'react-icons/io';
-import {
-	LEFT_PAGE,
-	RIGHT_PAGE,
-} from '../../const/pages';
 import styles from "./PageButton.module.css";
 
 interface PageButtonProps {
 	page: string | number;
 	current: string | number;
+	onClick?: () => void;
 }
 
-const PageButton: React.FC<PageButtonProps> = ({ page, current }) => {
-
-	if (page === LEFT_PAGE) {
-		return (
-			<button
-				className={styles["arrow-button"]}
-			>
-				<IoIosArrowBack />
-			</button>
-		)
-	}
-
-	if (page === RIGHT_PAGE) {
-		return (
-			<button
-				className={styles["arrow-button"]}
-			>
-				<IoIosArrowForward />
-			</button>
-		)
-	}
+const PageButton: React.FC<PageButtonProps> = ({ page, current, onClick }) => {
 	return (
 		<button
-			className={`${styles["page"]} ${current == page ? styles["active"] : ""}`}
+			className={`${styles["page"]} ${current === page ? styles["active"] : ""}`}
+			onClick={onClick}
 		>
 			{page}
 		</button>
-	)
-}
+	);
+};
 
 export default PageButton;

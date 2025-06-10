@@ -13,6 +13,8 @@ interface CardGridProps {
     selectedPriceRange: string;
     sortBy: string;
     setSortBy: (value: string) => void;
+    currentPage: number;
+    setCurrentPage: (value: number) => void;
 }
 
 const CardGrid: React.FC<CardGridProps> = ({
@@ -21,7 +23,9 @@ const CardGrid: React.FC<CardGridProps> = ({
     searchQuery,
     selectedPriceRange,
     sortBy,
-    setSortBy
+    setSortBy,
+    currentPage,
+    setCurrentPage
 }) => {
     const priceMatch = (price: number) => {
         if (selectedPriceRange === 'All') return true;
@@ -52,13 +56,19 @@ const CardGrid: React.FC<CardGridProps> = ({
         return 0;
     });
 
+    const itemsPerPage = 15;
+    const totalPages = Math.ceil(sortedItems.length / itemsPerPage);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const paginatedItems = sortedItems.slice(startIndex, startIndex + itemsPerPage);
+
     const sortOptions = ["Featured", "Price: Low to High", "Price: High to Low"];
 
     return (
         <div className={styles["card-grid"]}>
             <div className={styles["card-sort-container"]}>
                 <p className={styles["card-pagination"]}>
-                    Showing {sortedItems.length} - from {items.length}
+                    Showing {paginatedItems.length} of {sortedItems.length}
                 </p>
                 <Dropdown
                     Icon={HiOutlineAdjustmentsHorizontal}
@@ -71,7 +81,7 @@ const CardGrid: React.FC<CardGridProps> = ({
                 />
             </div>
             <div className={styles["card-grid-content"]}>
-                {sortedItems.map((item) => (
+                {paginatedItems.map((item) => (
                     <Card
                         key={item.id}
                         image={item.image}
@@ -86,7 +96,11 @@ const CardGrid: React.FC<CardGridProps> = ({
                     />
                 ))}
             </div>
-            <Pagination />
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+            />
         </div>
     );
 };
