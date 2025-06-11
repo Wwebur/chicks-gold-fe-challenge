@@ -1,5 +1,6 @@
 import Card from './Card';
 import CardDetails from './CardDetails';
+import CartDropdown from './CartDropdown';
 import CardGrid from './CardGrid';
 import CardInput from './CardInput';
 import Loading from './Loading';
@@ -13,6 +14,7 @@ import { Footer, FooterLinks } from './Footer';
 export {
   Card,
   CardDetails,
+  CartDropdown,
   CardGrid,
   CardInput,
   Loading,

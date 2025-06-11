@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 
-import { CardGrid, Filters, Header, Footer } from './components';
-import CartDropdown from './components/CartDropdown/CartDropdown';
+import { CartDropdown, CardGrid, Filters, Header, Footer } from './components';
 
 import './App.css';
 
