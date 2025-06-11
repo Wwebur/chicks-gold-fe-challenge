@@ -1,4 +1,4 @@
-.pagination-container {
+.paginationContainer {
     width: 100%;
     display: grid;
     place-items: center;
@@ -10,7 +10,7 @@
     gap: 5px;
 }
 
-.nav-btn {
+.paginationNavBtn {
   border: 2px solid var(--button-primary); /* red border */
   background: transparent;
   color: #fff;
@@ -23,8 +23,8 @@
   transition: border-color 0.2s;
 }
 
-.nav-btn.disabled,
-.nav-btn:disabled {
+.paginationNavBtnDisabled,
+.paginationNavBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   border-color: #444;

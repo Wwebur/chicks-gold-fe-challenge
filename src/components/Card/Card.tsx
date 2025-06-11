@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import CardInput from './CardInput';
 import { GoDotFill } from 'react-icons/go';
 import { IoMdCart } from 'react-icons/io';
-import Modal from '../Modal/Modal';
+
+import CardInput from './CardInput';
 import CardDetails from './CardDetails';
+import Modal from '../Modal/Modal';
+
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -44,59 +46,51 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <>
-      <div className={styles['card-container']}>
-        <div className={styles['card-head']}>
-          <div className={styles['card-sale-container']}>
+      <div className={styles.cardContainer}>
+        <div className={styles.cardHeader}>
+          <div className={styles.statusContainer}>
             {status ? (
-              <span className={styles['card-sale']}>
-                <GoDotFill className={styles['card-sale-dot']} />
-                <span className={styles['card-sale-text']}>{status}</span>
+              <span className={styles.statusBadge}>
+                <GoDotFill className={styles.statusDot} />
+                <span className={styles.statusText}>{status}</span>
               </span>
             ) : null}
             {stockStatus && (
-              <span className={styles['card-stock']} title={stockTooltip}>
+              <span className={styles.stockBadge} title={stockTooltip}>
                 {stockStatus}
               </span>
             )}
           </div>
           <CardInput quantity={quantity} setQuantity={setQuantity} />
         </div>
-        <div className={styles['card-tumbnail']}>
-          <img
-            src={image}
-            width={60}
-            height={60}
-            className={styles['card-product-thumbnail']}
-            alt={title}
-          />
+        <div className={styles.thumbnailImage}>
+          <img src={image} width={60} height={60} className={styles.thumbnailImage} alt={title} />
         </div>
-        <div className={styles['card-product-content']}>
-          <span className={styles['card-product-name-container']}>
-            <span className={styles['card-product-name']}>{title}</span>
-            <span className={styles['card-product-amount']}>
+        <div className={styles.contentSection}>
+          <span className={styles.titleContainer}>
+            <span className={styles.productTitle}>{title}</span>
+            <span className={styles.priceContainer}>
               <span>${price.toFixed(2)}</span>
               {originalPrice ? (
-                <span className={styles['discounted-amount']}>${originalPrice.toFixed(2)}</span>
+                <span className={styles.discountedPrice}>${originalPrice.toFixed(2)}</span>
               ) : null}
             </span>
           </span>
-          <span className={styles['card-product-brand']}>
-            <span className={styles.gameIconWrapper}>
-              <img
-                src={GAME_ICONS[gameType as keyof typeof GAME_ICONS]}
-                alt={gameType}
-                className={styles.gameIcon}
-              />
-            </span>
+          <span className={styles.gameIconWrapper}>
+            <img
+              src={GAME_ICONS[gameType as keyof typeof GAME_ICONS]}
+              alt={gameType}
+              className={styles.gameIcon}
+            />
           </span>
         </div>
-        <div className={styles['card-product-description']}>{description}</div>
-        <div className={styles['card-buttons']}>
-          <button className={styles['button-details']} onClick={() => setIsModalOpen(true)}>
+        <div className={styles.descriptionText}>{description}</div>
+        <div className={styles.actionButtons}>
+          <button className={styles.detailsButton} onClick={() => setIsModalOpen(true)}>
             Details
           </button>
           <button
-            className={styles['button-add']}
+            className={styles.addButton}
             disabled={!available}
             onClick={() => {
               onAdd?.(quantity);
@@ -104,7 +98,7 @@ const Card: React.FC<CardProps> = ({
             }}
           >
             <span>Add</span>
-            <span className={styles['button-add-icon']}>
+            <span className={styles.cartIcon}>
               <IoMdCart />
             </span>
           </button>

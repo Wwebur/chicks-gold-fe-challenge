@@ -11,7 +11,7 @@ interface MenuItemProps {
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ text, className = '', Icon, dropdown = true }) => (
-  <div className={`${styles['menu-item']} ${className}`}>
+  <div className={`${styles.menuItemContainer} ${className}`}>
     {Icon ? <Icon /> : null}
     <p>{text}</p>
     {dropdown ? <IoIosArrowDown /> : null}

@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import './App.css';
+
 import Header from './components/Header/Header';
 import Filters from './components/Filters/Filters';
 import CardGrid from './components/CardGrid/CardGrid';
-import { Footer } from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
+
+import './App.css';
 
 interface CartItem {
   id: number;

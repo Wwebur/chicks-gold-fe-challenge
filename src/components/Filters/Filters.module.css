@@ -1,15 +1,15 @@
-.filters-container, .filters-main {
+.filtersContainer, .filtersMain {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
 }
 
-.filters-side {
+.filtersSidebar {
     width: 100%;
 }
 
-.filter-select, .filter-search, .dropdown {
+.selectDropdown, .searchBar, .dropdown {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -21,34 +21,33 @@
     height: 60px;
 }
 
-.select-input {
+.selectInput {
     position: relative;
     flex-grow: 1;
     display: flex;
     justify-content:space-between;
 }
 
-.select-input > p {
+.selectInput > p {
     color: var(--text-white);
     margin: 0;
 }
 
-.arrow-icon {
+.arrowIcon {
     font-size: 25px;
     color: var(--text-white);
 }
 
-
-.filter-search {
+.searchBar {
     gap: 10px;
 }
 
-.filter-search-icon {
+.searchIcon {
     font-size: 20px;
     color: var(--text-white);
 }
 
-.search-input {
+.searchInput {
     outline: none;
     background-color: transparent;
     color: var(--text-white);
@@ -56,56 +55,56 @@
     flex-grow: 1;
 }
 
-.search-input::placeholder {
+.searchInput::placeholder {
     color: #9699a6;
 }
 
-.drop-down-container {
+.dropdownContainer {
     width: 100%;
     display: flex;
 }
 
-.drop-down-left {
+.dropdownLeft {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 1px solid var(--border-blue);
     width: 50%;
 }
-.drop-down-right {
+.dropdownRight {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     width: 50%;
 }
 
 @media screen and (min-width: 1200px){
-    .filters-container {
+    .filtersContainer {
         flex-direction: row;
     }
 
-    .filters-side {
+    .filtersSidebar {
         width: 30%;
     }
-    .filters-main {
+    .filtersMain {
         width: 70%;
     }
-    .filters-main {
+    .filtersMain {
         flex-direction: row;
     }
-    .drop-down-container {
+    .dropdownContainer {
         width: 40%;
     }
 
-    .filter-search {
+    .searchBar {
         width: 60%;
     }
 }
 
 @media screen and (min-width: 1900px){ 
-    .drop-down-container {
+    .dropdownContainer {
         width: 35%;
     }
 
-    .filter-search {
+    .searchBar {
         width: 65%;
     }
 }

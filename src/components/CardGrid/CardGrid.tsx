@@ -1,9 +1,12 @@
 import React from 'react';
-import { Dropdown } from '../Dropdown/Dropdown';
-import Card from '../Card/Card';
-import Pagination from '../Pagination/Pagination';
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
+
+import Card from '../Card/Card';
+import Dropdown from '../Dropdown/Dropdown';
+import Pagination from '../Pagination/Pagination';
+
 import items from '../../data/items.json';
+
 import styles from './CardGrid.module.css';
 
 interface Item {
@@ -83,14 +86,14 @@ const CardGrid: React.FC<CardGridProps> = ({
   const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low'];
 
   return (
-    <div className={styles['card-grid']}>
-      <div className={styles['card-sort-container']}>
-        <p className={styles['card-pagination']}>
+    <div className={styles.gridContainer}>
+      <div className={styles.controlsContainer}>
+        <p className={styles.itemsCount}>
           Showing {paginatedItems.length} of {sortedItems.length}
         </p>
         <Dropdown
           Icon={HiOutlineAdjustmentsHorizontal}
-          className={styles['card-sort']}
+          className={styles.sortDropdown}
           head="Sort By"
           text={sortBy}
           options={sortOptions}
@@ -98,7 +101,7 @@ const CardGrid: React.FC<CardGridProps> = ({
           onSelect={setSortBy}
         />
       </div>
-      <div className={styles['card-grid-content']}>
+      <div className={styles.gridContent}>
         {paginatedItems.map(item => (
           <Card
             key={item.id}

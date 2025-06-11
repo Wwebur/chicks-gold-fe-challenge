@@ -12,11 +12,13 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <div className={styles['pagination-container']}>
-      <div className={styles['pagination']}>
+    <div className={styles.paginationContainer}>
+      <div className={styles.pagination}>
         {/* Prev Button */}
         <button
-          className={`${styles['nav-btn']} ${currentPage === 1 ? styles['disabled'] : ''}`}
+          className={`${styles.paginationNavBtn} ${
+            currentPage === 1 ? styles.paginationNavBtnDisabled : ''
+          }`}
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
           aria-label="Previous page"
@@ -36,7 +38,9 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
 
         {/* Next Button */}
         <button
-          className={`${styles['nav-btn']} ${currentPage === totalPages ? styles['disabled'] : ''}`}
+          className={`${styles.paginationNavBtn} ${
+            currentPage === totalPages ? styles.paginationNavBtnDisabled : ''
+          }`}
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
           aria-label="Next page"

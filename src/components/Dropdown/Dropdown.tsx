@@ -12,7 +12,7 @@ export interface DropdownProps {
   onSelect?: (value: string) => void;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown: React.FC<DropdownProps> = ({
   Icon,
   className = '',
   head,
@@ -52,45 +52,29 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div
-      className={`${styles.dropdown} ${className}`}
+      className={`${styles.dropdownContainer} ${className}`}
       ref={ref}
       onClick={toggleDropdown}
       style={{ position: 'relative' }}
     >
-      <Icon className={styles['dropdown-icon']} />
-      <span className={styles['dropdown-content']}>
-        <span className={styles['dropdown-head']}>{head}</span>
-        <span className={styles['dropdown-text']}>{text}</span>
+      <Icon className={styles.icon} />
+      <span className={styles.content}>
+        <span className={styles.label}>{head}</span>
+        <span className={styles.value}>{text}</span>
       </span>
-      <IoMdArrowDropdown className={styles['arrow-icon']} />
+      <IoMdArrowDropdown className={styles.arrow} />
 
       {isOpen && options.length > 0 && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: '#4a526b',
-            borderRadius: '4px',
-            marginTop: '5px',
-            zIndex: 1000,
-            maxHeight: '200px',
-            overflowY: 'auto',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
-          }}
-        >
+        <div className={styles.dropdownMenu}>
           {options.map(option => (
             <div
+              className={styles.dropdownItem}
               key={option}
               onClick={e => {
                 e.stopPropagation();
                 handleSelect(option);
               }}
               style={{
-                padding: '10px 15px',
-                color: 'white',
-                cursor: 'pointer',
                 backgroundColor: option === selected ? '#5a6280' : 'transparent',
               }}
             >
@@ -102,3 +86,5 @@ export const Dropdown: React.FC<DropdownProps> = ({
     </div>
   );
 };
+
+export default Dropdown;

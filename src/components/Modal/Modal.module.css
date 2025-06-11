@@ -24,7 +24,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.closeButton {
+.modalCloseButton {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -38,6 +38,6 @@
   transition: color 0.2s ease;
 }
 
-.closeButton:hover {
+.modalCloseButton:hover {
   color: var(--button-primary);
 } 

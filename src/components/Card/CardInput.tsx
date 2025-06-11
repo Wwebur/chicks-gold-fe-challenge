@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Card.module.css';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
+
+import styles from './Card.module.css';
 
 interface CardInputProps {
   quantity: number;
@@ -21,16 +22,16 @@ const CardInput: React.FC<CardInputProps> = ({ quantity, setQuantity }) => {
   };
 
   return (
-    <div className={styles['card-input-container']}>
+    <div className={styles.quantityContainer}>
       <input
-        className={styles['card-input']}
+        className={styles.quantityInput}
         type="number"
         name="number"
         value={quantity}
         onChange={onChange}
       />
-      <IoMdArrowDropup className={styles['caret-up']} onClick={handleIncrease} />
-      <IoMdArrowDropdown className={styles['caret-down']} onClick={handleDecrease} />
+      <IoMdArrowDropup className={styles.quantityUp} onClick={handleIncrease} />
+      <IoMdArrowDropdown className={styles.quantityDown} onClick={handleDecrease} />
     </div>
   );
 };

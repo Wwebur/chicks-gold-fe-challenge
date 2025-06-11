@@ -10,7 +10,7 @@ interface PageButtonProps {
 const PageButton: React.FC<PageButtonProps> = ({ page, current, onClick }) => {
   return (
     <button
-      className={`${styles['page']} ${current === page ? styles['active'] : ''}`}
+      className={`${styles.pageButton} ${current === page ? styles.pageButtonActive : ''}`}
       onClick={onClick}
     >
       {page}

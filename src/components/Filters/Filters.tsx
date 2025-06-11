@@ -1,7 +1,9 @@
 import React from 'react';
-import { Dropdown } from '../Dropdown/Dropdown';
 import { FiSearch } from 'react-icons/fi';
 import { GiSwapBag, GiFeather, GiBroadsword } from 'react-icons/gi';
+
+import Dropdown from '../Dropdown/Dropdown';
+
 import styles from './Filters.module.css';
 
 interface FiltersProps {
@@ -37,11 +39,11 @@ const Filters: React.FC<FiltersProps> = ({
   const itemTypes = selectedGameType ? itemTypesMap[selectedGameType] : [];
 
   return (
-    <div className={styles['filters-container']}>
-      <div className={styles['filters-side']}>
+    <div className={styles.filtersContainer}>
+      <div className={styles.filtersSidebar}>
         <Dropdown
           Icon={GiBroadsword}
-          className={styles['filter-select']}
+          className={styles.selectDropdown}
           head="Game"
           text={selectedGameType ?? 'Select a game'}
           options={gameTypes}
@@ -52,20 +54,20 @@ const Filters: React.FC<FiltersProps> = ({
           }}
         />
       </div>
-      <div className={styles['filters-main']}>
-        <div className={styles['filter-search']}>
-          <FiSearch className={styles['filter-search-icon']} />
+      <div className={styles.filtersMain}>
+        <div className={styles.searchBar}>
+          <FiSearch className={styles.searchIcon} />
           <input
             placeholder="Search"
-            className={styles['search-input']}
+            className={styles.searchInput}
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
           />
         </div>
-        <div className={styles['drop-down-container']}>
+        <div className={styles.dropdownContainer}>
           <Dropdown
             Icon={GiSwapBag}
-            className={styles['drop-down-left']}
+            className={styles.dropdownLeft}
             head="Price"
             text={selectedPriceRange}
             options={priceRanges}
@@ -74,7 +76,7 @@ const Filters: React.FC<FiltersProps> = ({
           />
           <Dropdown
             Icon={GiFeather}
-            className={styles['drop-down-right']}
+            className={styles.dropdownRight}
             head="Item Type"
             text={selectedItemType ?? 'All'}
             options={itemTypes}

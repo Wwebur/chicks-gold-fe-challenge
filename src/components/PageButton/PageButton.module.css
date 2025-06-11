@@ -1,4 +1,4 @@
-.arrow-button, .page {
+.arrowButton, .pageButton {
     border: 1px solid var(--button-primary);
     width: 20px;
     height: 20px;
@@ -12,27 +12,27 @@
     cursor: pointer;
 }
 
-.page {
+.pageButton {
     border: none;
 }
 
-.active {
+.pageButtonActive {
     background-color: var(--button-primary);
     border-radius: 5px;
 }
 
 @media screen and (min-width: 600px){
-    .arrow-button, .page {
+    .arrowButton, .pageButton {
         width: 35px;
         height: 35px;
         border-radius: 5px;
     }
     
-    .page { 
+    .pageButton { 
         font-size: 15px;
     }
 
-    .arrow-button {
+    .arrowButton {
         margin-inline: 10px;
         font-size: 20px;
     }

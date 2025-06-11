@@ -18,42 +18,42 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
     setOpen(prevState => !prevState);
   };
   return (
-    <nav className={styles['nav-container']}>
-      <div className={styles['nav-main-content']}>
+    <nav className={styles.headerContainer}>
+      <div className={styles.headerMainContent}>
         <button
-          className={`${styles['nav-menu-btn']} ${open ? styles['btn-active'] : ''}`}
+          className={`${styles.headerMenuBtn} ${open ? styles.headerMenuBtnActive : ''}`}
           onClick={toggleOpen}
         >
           {open ? (
-            <IoClose className={styles['nav-menu-icon']} />
+            <IoClose className={styles.headerMenuIcon} />
           ) : (
-            <IoMenu className={styles['nav-menu-icon']} />
+            <IoMenu className={styles.headerMenuIcon} />
           )}
         </button>
-        <div className={styles['nav-logo-container']}>
+        <div className={styles.headerLogoContainer}>
           <img
             src="./assets/chicks-logo-large.svg"
             width={125}
             height={30}
             alt="chicks-logo"
-            className={styles['nav-logo']}
+            className={styles.headerLogo}
           />
         </div>
-        <div className={`${styles['nav-menu-items']} ${open ? styles['active'] : ''}`}>
+        <div className={`${styles.headerMenuItems} ${open ? styles.headerMenuItemsActive : ''}`}>
           {navItems.map(item => (
             <MenuItem key={item} text={item} />
           ))}
         </div>
       </div>
-      <div className={styles['nav-cart-container']}>
-        <MenuItem text="USD" className={styles['display-web']} />
+      <div className={styles.headerCartContainer}>
+        <MenuItem text="USD" className={styles.headerDisplayWeb} />
         <MenuItem
           text={`Cart (${cartCount})`}
-          className={styles['display-web']}
+          className={styles.headerDisplayWeb}
           dropdown={false}
           Icon={HiShoppingCart}
         />
-        <button className={styles['sing-in-btn']}>
+        <button className={styles.headerSignInBtn}>
           <span>SIGN IN</span>
           <IoPersonSharp />
         </button>
