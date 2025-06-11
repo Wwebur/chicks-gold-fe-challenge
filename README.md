@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Chicks Gold Frontend Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based application for Chicks Gold, featuring a product catalog and shopping cart functionality.
+
+## Live Demo
+
+Visit the live application at: [https://chicks-gold-fe-challenge.vercel.app/](https://chicks-gold-fe-challenge.vercel.app/)
+
+## Tech Stack
+
+- **Frontend Framework**: React 19.1.0
+- **Language**: TypeScript 4.9.5
+- **Icons**: React Icons 5.4.0
+- **Code Quality**:
+  - ESLint for code linting
+  - Prettier for code formatting
+  - TypeScript for type safety
+
+## Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm (comes with Node.js)
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm start
+```
+
+The application will open in your default browser at [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run lint` - Runs ESLint to check for code issues
+- `npm run lint:fix` - Automatically fixes ESLint issues
+- `npm run format` - Formats code using Prettier
 
-### `npm start`
+## Important Notes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **State Management**:
+   - The application uses React's built-in state management (useState)
+   - No external state management libraries (Redux, etc.) are used
+   - No localStorage implementation for persisting cart data
+   - Page refresh will reset the cart to empty state
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Development Guidelines**:
+   - Follow TypeScript best practices
+   - Maintain consistent code formatting using Prettier
+   - Follow ESLint rules for code quality
+   - Write meaningful component and function names
