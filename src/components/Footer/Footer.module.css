@@ -83,6 +83,7 @@
 .footer-email {
     color: var(--text-white);
     font-size: 14px;
+    text-decoration: none;
 }
 
 .footer-links {

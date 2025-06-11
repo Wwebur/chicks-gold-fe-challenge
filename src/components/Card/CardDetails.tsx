@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { GoDotFill } from "react-icons/go";
-import { IoMdCart } from "react-icons/io";
-import CardInput from "./CardInput";
+import { GoDotFill } from 'react-icons/go';
+import { IoMdCart } from 'react-icons/io';
+import CardInput from './CardInput';
 import styles from './CardDetails.module.css';
 
 interface CardDetailsProps {
@@ -19,9 +19,10 @@ interface CardDetailsProps {
 }
 
 const GAME_ICONS = {
-  'Diablo 2 Resurrected': 'https://chicks-games.s3.amazonaws.com/19c920e8-47d4-4718-b511-a9a02d886ff6',
-  'OSRS': 'https://chicks-games.s3.amazonaws.com/ae72ce8a-e872-484d-8159-b36930a509cb',
-  'RS3': 'https://chicks-games.s3.amazonaws.com/868e80f5-c433-4a00-9596-21472fac7601'
+  'Diablo 2 Resurrected':
+    'https://chicks-games.s3.amazonaws.com/19c920e8-47d4-4718-b511-a9a02d886ff6',
+  OSRS: 'https://chicks-games.s3.amazonaws.com/ae72ce8a-e872-484d-8159-b36930a509cb',
+  RS3: 'https://chicks-games.s3.amazonaws.com/868e80f5-c433-4a00-9596-21472fac7601',
 };
 
 const CardDetails: React.FC<CardDetailsProps> = ({
@@ -48,11 +49,7 @@ const CardDetails: React.FC<CardDetailsProps> = ({
     <div className={styles.detailsContainer}>
       <div className={styles.imageSection}>
         <div className={styles.imageWrapper}>
-          <img
-            src={image}
-            alt={title}
-            className={styles.productImage}
-          />
+          <img src={image} alt={title} className={styles.productImage} />
           {status && (
             <div className={styles.statusBadge}>
               <GoDotFill className={styles.statusDot} />
@@ -61,16 +58,16 @@ const CardDetails: React.FC<CardDetailsProps> = ({
           )}
         </div>
       </div>
-      
+
       <div className={styles.contentSection}>
         <div className={styles.header}>
           <div className={styles.titleSection}>
             <h2 className={styles.title}>{title}</h2>
             <div className={styles.brandSection}>
-              <span className={styles["card-product-brand"]}>
+              <span className={styles['card-product-brand']}>
                 <span className={styles.gameIconWrapper}>
-                  <img 
-                    src={GAME_ICONS[gameType as keyof typeof GAME_ICONS]} 
+                  <img
+                    src={GAME_ICONS[gameType as keyof typeof GAME_ICONS]}
                     alt={gameType}
                     className={styles.gameIcon}
                   />
@@ -103,13 +100,17 @@ const CardDetails: React.FC<CardDetailsProps> = ({
         <div className={styles.footer}>
           <div className={styles.availabilitySection}>
             <span className={styles.availabilityLabel}>Availability:</span>
-            <span className={`${styles.availabilityStatus} ${available ? styles.available : styles.unavailable}`}>
+            <span
+              className={`${styles.availabilityStatus} ${
+                available ? styles.available : styles.unavailable
+              }`}
+            >
               {available ? 'In Stock' : 'Out of Stock'}
             </span>
           </div>
           <div className={styles.cartSection}>
             <CardInput quantity={quantity} setQuantity={setQuantity} />
-            <button 
+            <button
               className={`${styles.addToCartButton} ${!available ? styles.disabled : ''}`}
               disabled={!available}
               onClick={handleAddToCart}
@@ -124,4 +125,4 @@ const CardDetails: React.FC<CardDetailsProps> = ({
   );
 };
 
-export default CardDetails; 
+export default CardDetails;

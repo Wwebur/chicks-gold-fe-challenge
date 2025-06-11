@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Footer.module.css";
+import React from 'react';
+import styles from './Footer.module.css';
 
 interface FooterLinksProps {
   title: string;
@@ -7,10 +7,10 @@ interface FooterLinksProps {
 }
 
 export const FooterLinks: React.FC<FooterLinksProps> = ({ title, items }) => (
-  <div className={styles["footer-links"]}>
-    <div className={styles["title"]}>{title}</div>
-    {items.map((item) => (
-      <a key={item.text} href={item.href} className={styles["link"]}>
+  <div className={styles['footer-links']}>
+    <div className={styles['title']}>{title}</div>
+    {items.map(item => (
+      <a key={item.text} href={item.href} className={styles['link']}>
         {item.text}
       </a>
     ))}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Filters from './components/Filters/Filters';
@@ -32,13 +32,13 @@ function App() {
   const handleAddToCart = (item: Omit<CartItem, 'quantity'>, quantity: number) => {
     setCartItems(prevItems => {
       const existingItemIndex = prevItems.findIndex(cartItem => cartItem.id === item.id);
-      
+
       if (existingItemIndex !== -1) {
         // Item exists in cart - update quantity
         const updatedItems = [...prevItems];
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],
-          quantity: updatedItems[existingItemIndex].quantity + quantity
+          quantity: updatedItems[existingItemIndex].quantity + quantity,
         };
         return updatedItems;
       } else {
@@ -47,10 +47,6 @@ function App() {
       }
     });
   };
-
-  useEffect(() => {
-    console.log("cartItems", cartItems);
-  }, [cartItems]);
 
   const handleSetSelectedGameType = (value: string | null) => {
     setSelectedGameType(value);
@@ -82,16 +78,10 @@ function App() {
       <Header cartCount={cartItems.length} />
 
       <div className="main-content">
-        <img
-          src="./assets/background.jpg"
-          className="main-background"
-          alt="main-background"
-        />
+        <img src="./assets/background.png" className="main-background" alt="main-background" />
         <div className="card-grid-container">
           <div className="card-grid-content">
-            <div className="card-grid-title">
-              Condimentum consectetur
-            </div>
+            <div className="card-grid-title">Condimentum consectetur</div>
             <Filters
               selectedGameType={selectedGameType}
               setSelectedGameType={handleSetSelectedGameType}

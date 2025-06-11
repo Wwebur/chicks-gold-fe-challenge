@@ -1,26 +1,26 @@
 export const paymentsMethods = [
   {
-    img: "visa.png",
+    img: 'visa.png',
     width: 80,
     height: 30,
   },
   {
-    img: "mastercard.png",
+    img: 'mastercard.png',
     width: 60,
     height: 60,
   },
   {
-    img: "americanexpress.png",
+    img: 'americanexpress.png',
     width: 80,
     height: 50,
   },
   {
-    img: "skrill.png",
+    img: 'skrill.png',
     width: 80,
     height: 30,
   },
   {
-    img: "cripto.png",
+    img: 'cripto.png',
     width: 80,
     height: 25,
   },
