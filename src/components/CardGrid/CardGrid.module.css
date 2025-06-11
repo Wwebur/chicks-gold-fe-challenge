@@ -1,68 +1,77 @@
 .gridContainer {
-    background: #303141;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(44, 45, 51, .8);
-    width: 100%;
-    padding: 30px;
-    border: 1px solid var(--border-blue);
+  background: #303141;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(44, 45, 51, 0.8);
+  width: 100%;
+  padding: 30px;
+  border: 1px solid var(--border-blue);
 }
 
 .controlsContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .itemsCount {
-    display: none;
+  display: none;
 }
 
 .sortDropdown {
-    width: 100%;
+  width: 100%;
 }
 
 .gridContent {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(15, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-    margin: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(15, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  margin: 30px 0;
+}
+
+.noItemsFound {
+  width: 100%;
+  text-align: center;
+  color: var(--text-ligth-grey);
+  font-size: 1.2rem;
+  padding: 48px 0;
+  letter-spacing: 0.02em;
 }
 
 @media screen and (min-width: 600px) {
-    .gridContainer {
-        padding: 50px;
-    }
+  .gridContainer {
+    padding: 50px;
+  }
 
-    .itemsCount {
-        margin: 0;
-        color: var(--text-white);
-        display: flex;
-    }
+  .itemsCount {
+    margin: 0;
+    color: var(--text-white);
+    display: flex;
+  }
 
-    .sortDropdown {
-        width: 180px;
-    }
+  .sortDropdown {
+    width: 180px;
+  }
 
-    .gridContent {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(8, 1fr);
-    }
+  .gridContent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
 }
 
-@media screen and (min-width: 100px) {
-    .gridContent {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-    }
+@media screen and (min-width: 900px) {
+  .gridContent {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
 }
 
 @media screen and (min-width: 1500px) {
-    .gridContent {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-    }
+  .gridContent {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
 }

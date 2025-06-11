@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
-import styles from './Card.module.css';
+import styles from './CardInput.module.css';
 
 interface CardInputProps {
   quantity: number;

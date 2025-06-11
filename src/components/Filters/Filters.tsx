@@ -2,7 +2,7 @@ import React from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { GiSwapBag, GiFeather, GiBroadsword } from 'react-icons/gi';
 
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '../Dropdown';
 
 import styles from './Filters.module.css';
 

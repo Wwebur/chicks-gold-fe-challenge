@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, RefObject } from 'react';
 import { IoMenu, IoClose, IoPersonSharp } from 'react-icons/io5';
 import { HiShoppingCart } from 'react-icons/hi';
 
@@ -8,11 +8,12 @@ import styles from './Header.module.css';
 
 interface HeaderProps {
   cartCount: number;
+  onCartClick: () => void;
 }
 
 const navItems = ['Currency', 'Items', 'Accounts', 'Services', 'SWAP', 'Sell'];
 
-const Header: React.FC<HeaderProps> = ({ cartCount }) => {
+const Header: React.FC<HeaderProps> = ({ cartCount, onCartClick }) => {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => {
     setOpen(prevState => !prevState);
@@ -41,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
         </div>
         <div className={`${styles.headerMenuItems} ${open ? styles.headerMenuItemsActive : ''}`}>
           {navItems.map(item => (
-            <MenuItem key={item} text={item} />
+            <MenuItem key={item} text={item} className={open ? styles.headerMenuItemActive : ''} />
           ))}
         </div>
       </div>
@@ -49,9 +50,10 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
         <MenuItem text="USD" className={styles.headerDisplayWeb} />
         <MenuItem
           text={`Cart (${cartCount})`}
-          className={styles.headerDisplayWeb}
+          className={styles.headerCart}
           dropdown={false}
           Icon={HiShoppingCart}
+          onClick={onCartClick}
         />
         <button className={styles.headerSignInBtn}>
           <span>SIGN IN</span>

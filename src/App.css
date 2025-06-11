@@ -1,11 +1,11 @@
-.app-container {
+.appContainer {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main-content {
+.mainContent {
   flex-grow: 1;
   width: 100%;
   position: relative;
@@ -13,7 +13,7 @@
   background-color: var(--background-dark-blue);
 }
 
-.main-background {
+.mainBackground {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -21,7 +21,7 @@
   object-position: top right;
 }
 
-.card-grid-container {
+.cardGridContainer {
   width: 100%;
   display: flex;
   position: relative;
@@ -32,7 +32,7 @@
   z-index: 2;
 }
 
-.card-grid-content {
+.cardGridContent {
   width: auto;
   display: flex;
   flex-direction: column;
@@ -41,33 +41,40 @@
   gap: 20px;
 }
 
-.card-grid-title {
+.cardGridTitle {
   font-size: 25px;
   font-weight: bold;
   color: var(--text-white);
 }
 
+.cartDropdownContainer {
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  z-index: 2000;
+}
+
 @media screen and (min-width: 480px) {
-  .card-grid-container {
+  .cardGridContainer {
     padding: 50px;
     padding-top: 100px;
   }
 }
 
 @media screen and (min-width: 600px) {
-  .card-grid-content {
+  .cardGridContent {
     max-width: 590px;
   }
 }
 
-@media screen and (min-width: 1000px) {
-  .card-grid-content {
+@media screen and (min-width: 900px) {
+  .cardGridContent {
     max-width: 840px;
   }
 }
 
 @media screen and (min-width: 1500px) {
-  .card-grid-content {
+  .cardGridContent {
     max-width: 1300px;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import PageButton from '../PageButton/PageButton';
+
+import PageButton from '../PageButton';
 import styles from './Pagination.module.css';
 
 interface PaginationProps {

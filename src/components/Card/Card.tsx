@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { GoDotFill } from 'react-icons/go';
 import { IoMdCart } from 'react-icons/io';
 
-import CardInput from './CardInput';
-import CardDetails from './CardDetails';
-import Modal from '../Modal/Modal';
+import CardInput from '../CardInput';
+import CardDetails from '../CardDetails';
+import Modal from '../Modal';
 
 import styles from './Card.module.css';
 

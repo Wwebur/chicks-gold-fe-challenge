@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
 
-import Card from '../Card/Card';
-import Dropdown from '../Dropdown/Dropdown';
-import Pagination from '../Pagination/Pagination';
+import Card from '../Card';
+import Dropdown from '../Dropdown';
+import Pagination from '../Pagination';
+import Loading from '../Loading';
 
 import items from '../../data/items.json';
 
@@ -48,6 +49,14 @@ const CardGrid: React.FC<CardGridProps> = ({
   setCurrentPage,
   onAddToCart,
 }) => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, [selectedGameType, selectedItemType]);
+
   const priceMatch = (price: number) => {
     if (selectedPriceRange === 'All') return true;
     if (selectedPriceRange === '0-10') return price >= 0 && price <= 10;
@@ -101,25 +110,37 @@ const CardGrid: React.FC<CardGridProps> = ({
           onSelect={setSortBy}
         />
       </div>
-      <div className={styles.gridContent}>
-        {paginatedItems.map(item => (
-          <Card
-            key={item.id}
-            image={item.image}
-            title={item.title}
-            price={item.price}
-            originalPrice={item.originalPrice}
-            status={item.status}
-            stockStatus={item.stockStatus}
-            stockTooltip={item.stockTooltip}
-            description={item.description}
-            available={item.available}
-            gameType={item.gameType}
-            onAdd={quantity => onAddToCart(item, quantity)}
+      {loading ? (
+        <Loading />
+      ) : paginatedItems.length === 0 ? (
+        <div className={styles.noItemsFound}>No items found matching your criteria.</div>
+      ) : (
+        <>
+          <div className={styles.gridContent}>
+            {paginatedItems.map(item => (
+              <Card
+                key={item.id}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+                originalPrice={item.originalPrice}
+                status={item.status}
+                stockStatus={item.stockStatus}
+                stockTooltip={item.stockTooltip}
+                description={item.description}
+                available={item.available}
+                gameType={item.gameType}
+                onAdd={quantity => onAddToCart(item, quantity)}
+              />
+            ))}
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
           />
-        ))}
-      </div>
-      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+        </>
+      )}
     </div>
   );
 };

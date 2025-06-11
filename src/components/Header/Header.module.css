@@ -1,119 +1,131 @@
 .headerContainer {
-    background-color: var(--background-dark-blue);
-    width: 100%;
-    height: 72px;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid var(--border-blue);
-    position: relative;
+  background-color: var(--background-dark-blue);
+  width: 100%;
+  height: 72px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-blue);
+  position: relative;
 }
 
 .headerMainContent {
-    display: flex;
+  display: flex;
 }
 
 .headerLogo {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(27deg) brightness(102%) contrast(102%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(27deg)
+    brightness(102%) contrast(102%);
 }
 
 .headerLogoContainer {
-    margin-inline: 10px;
+  margin-inline: 10px;
 }
 
 .headerMenuBtn {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    z-index: 5;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
 }
 
 .headerMenuBtnActive {
-    position: fixed;
+  position: fixed;
 }
 
 .headerMenuIcon {
-    font-size: 25px;
-    color: var(--text-white);
+  font-size: 25px;
+  color: var(--text-white);
 }
 
 .headerMenuItems {
-    position: fixed;
-    background-color: var(--background-dark-blue);
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    translate: -100%;
-    transition: 0.3s all ease-in-out;
-    z-index: 3;
+  position: fixed;
+  background-color: var(--background-dark-blue);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  translate: -100%;
+  transition: 0.3s all ease-in-out;
+  z-index: 3;
 }
 
 .headerMenuItemsActive {
-    translate: 0;
+  translate: 0;
+  gap: 30px;
 }
 
 .headerDisplayWeb {
-    display: none;
+  display: none;
 }
 
 .headerCartContainer {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .headerSignInBtn {
-    padding: 10px 15px;
-    background-color: var(--background-green);
-    color: var(--text-dark-blue);
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    height: 40px;
-    cursor: pointer;
+  padding: 10px 15px;
+  background-color: var(--background-green);
+  color: var(--text-dark-blue);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .headerSignInBtn > span {
-    color: var(--text-dark-blue);
-    font-weight: bold;
+  color: var(--text-dark-blue);
+  font-weight: bold;
 }
 
 @media screen and (min-width: 1200px) {
-    .headerMenuBtn {
-        display: none;
-    }
+  .headerMenuBtn {
+    display: none;
+  }
 
-    .headerLogoContainer {
-        padding-right: 30px;
-        border-right: 1px solid #FFF;
-        height: 42px;
-        margin-right: 20px;
-    }
+  .headerLogoContainer {
+    padding-right: 30px;
+    border-right: 1px solid #fff;
+    height: 42px;
+    margin-right: 20px;
+  }
 
-    .headerMenuItems {
-        translate: 0;
-        position: relative;
-        width: auto;
-        height: auto;
-        flex-direction: row;
-        background-color: transparent;
-    }
+  .headerMenuItems {
+    translate: 0;
+    position: relative;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    background-color: transparent;
+  }
 
-    .headerDisplayWeb {
-        display: flex;
-    }
+  .headerDisplayWeb {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .headerMenuItemActive {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
 }

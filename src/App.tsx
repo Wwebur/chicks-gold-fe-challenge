@@ -1,9 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
-import Header from './components/Header/Header';
-import Filters from './components/Filters/Filters';
-import CardGrid from './components/CardGrid/CardGrid';
-import Footer from './components/Footer/Footer';
+import { CardGrid, Filters, Header, Footer } from './components';
+import CartDropdown from './components/CartDropdown/CartDropdown';
 
 import './App.css';
 
@@ -30,6 +28,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const handleAddToCart = (item: Omit<CartItem, 'quantity'>, quantity: number) => {
     setCartItems(prevItems => {
@@ -75,15 +74,19 @@ function App() {
     setCurrentPage(1);
   };
 
-  return (
-    <div className="app-container">
-      <Header cartCount={cartItems.length} />
+  // Handler to toggle cart dropdown
+  const handleCartClick = () => setCartOpen(open => !open);
+  const handleCartClose = () => setCartOpen(false);
 
-      <div className="main-content">
-        <img src="./assets/background.png" className="main-background" alt="main-background" />
-        <div className="card-grid-container">
-          <div className="card-grid-content">
-            <div className="card-grid-title">Condimentum consectetur</div>
+  return (
+    <div className="appContainer">
+      <Header cartCount={cartItems.length} onCartClick={handleCartClick} />
+
+      <div className="mainContent">
+        <img src="./assets/background.png" className="mainBackground" alt="main-background" />
+        <div className="cardGridContainer">
+          <div className="cardGridContent">
+            <div className="cardGridTitle">Condimentum consectetur</div>
             <Filters
               selectedGameType={selectedGameType}
               setSelectedGameType={handleSetSelectedGameType}
@@ -108,6 +111,12 @@ function App() {
             />
           </div>
         </div>
+        {/* Cart Dropdown Modal */}
+        {cartOpen && (
+          <div className="cartDropdownContainer">
+            <CartDropdown items={cartItems} onClose={handleCartClose} />
+          </div>
+        )}
       </div>
 
       <Footer />

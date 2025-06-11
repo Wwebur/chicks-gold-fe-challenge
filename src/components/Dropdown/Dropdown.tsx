@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { IoMdArrowDropdown } from 'react-icons/io';
+
 import styles from './Dropdown.module.css';
 
-export interface DropdownProps {
+interface DropdownProps {
   Icon: React.ComponentType<any>;
   className?: string;
   head?: string;

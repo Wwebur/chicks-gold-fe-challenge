@@ -8,14 +8,21 @@ interface MenuItemProps {
   className?: string;
   Icon?: React.ComponentType<any>;
   dropdown?: boolean;
+  onClick?: () => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ text, className = '', Icon, dropdown = true }) => (
-  <div className={`${styles.menuItemContainer} ${className}`}>
+const MenuItem: React.FC<MenuItemProps> = ({
+  text,
+  className = '',
+  Icon,
+  dropdown = true,
+  onClick,
+}) => (
+  <button className={`${styles.menuItemContainer} ${className}`} onClick={onClick}>
     {Icon ? <Icon /> : null}
     <p>{text}</p>
     {dropdown ? <IoIosArrowDown /> : null}
-  </div>
+  </button>
 );
 
 export default MenuItem;

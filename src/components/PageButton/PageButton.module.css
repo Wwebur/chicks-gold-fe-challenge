@@ -1,39 +1,41 @@
-.arrowButton, .pageButton {
-    border: 1px solid var(--button-primary);
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    display: grid;
-    place-items: center;
-    background-color: transparent;
-    outline: none;
-    color: var(--text-white);
-    font-size: 10px;
-    cursor: pointer;
+.arrowButton,
+.pageButton {
+  border: 1px solid var(--button-primary);
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  outline: none;
+  color: var(--text-white);
+  font-size: 10px;
+  cursor: pointer;
 }
 
 .pageButton {
-    border: none;
+  border: none;
 }
 
 .pageButtonActive {
-    background-color: var(--button-primary);
-    border-radius: 5px;
+  background-color: var(--button-primary);
+  border-radius: 5px;
 }
 
-@media screen and (min-width: 600px){
-    .arrowButton, .pageButton {
-        width: 35px;
-        height: 35px;
-        border-radius: 5px;
-    }
-    
-    .pageButton { 
-        font-size: 15px;
-    }
+@media screen and (min-width: 600px) {
+  .arrowButton,
+  .pageButton {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+  }
 
-    .arrowButton {
-        margin-inline: 10px;
-        font-size: 20px;
-    }
+  .pageButton {
+    font-size: 15px;
+  }
+
+  .arrowButton {
+    margin-inline: 10px;
+    font-size: 20px;
+  }
 }

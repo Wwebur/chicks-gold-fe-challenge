@@ -1,0 +1,37 @@
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--text-white);
+  padding: 15px;
+  background-color: #4a526b6c;
+  border-radius: 4px;
+  position: relative;
+  height: 50px;
+  width: 80px;
+}
+
+.quantityInput {
+  width: 80%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--text-white);
+}
+
+.quantityUp,
+.quantityDown {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 17px;
+}
+
+.quantityUp {
+  top: 11px;
+}
+
+.quantityDown {
+  bottom: 11px;
+}

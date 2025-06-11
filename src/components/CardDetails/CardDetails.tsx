@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GoDotFill } from 'react-icons/go';
 import { IoMdCart } from 'react-icons/io';
 
-import CardInput from './CardInput';
+import CardInput from '../CardInput';
 
 import styles from './CardDetails.module.css';
 

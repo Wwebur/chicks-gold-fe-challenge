@@ -1,13 +1,14 @@
 .paginationContainer {
-    width: 100%;
-    display: grid;
-    place-items: center;
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .pagination {
-    width: fit-content;
-    display: flex;
-    gap: 5px;
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 .paginationNavBtn {

@@ -4,15 +4,11 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 30px;
   color: var(--text-white);
   text-transform: uppercase;
   cursor: pointer;
-}
-
-.menuItemContainer > p {
-  font-size: 14px;
-  margin: 0;
+  background: none;
+  border: none;
 }
 
 .menuItemActive {
