@@ -1,4 +1,4 @@
-import React, { useState, RefObject } from 'react';
+import React, { useState } from 'react';
 import { IoMenu, IoClose, IoPersonSharp } from 'react-icons/io5';
 import { HiShoppingCart } from 'react-icons/hi';
 

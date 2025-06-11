@@ -1,4 +1,6 @@
-export const footerLinks = [
+import { FooterSection } from '../../data/models/types';
+
+export const footerLinks: FooterSection[] = [
   {
     title: 'Chicks Gold',
     items: [

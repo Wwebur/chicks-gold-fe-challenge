@@ -1,9 +1,9 @@
 import React from 'react';
 import { IoIosStar } from 'react-icons/io';
 
-import { footerLinks } from '../../const/footerLinks';
-import { paymentsMethods } from '../../const/paymentMethods';
-import { socials } from '../../const/socials';
+import { footerLinks } from '../../config/navigation/footer';
+import { paymentMethods } from '../../config/payment/methods';
+import { socialLinks } from '../../config/social/links';
 
 import FooterLinks from './FooterLinks';
 
@@ -14,14 +14,14 @@ const Footer: React.FC = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.footerPaymentsContainer}>
         <div className={styles.footerPayments}>
-          {paymentsMethods.map(item => (
+          {paymentMethods.map(item => (
             <img
-              key={item.img}
+              key={item.name}
               width={item.width}
               height={item.height}
-              src={`/assets/${item.img}`}
+              src={`/assets/${item.image}`}
               className={styles.paymentsImg}
-              alt={item.img}
+              alt={item.alt}
             />
           ))}
           <span>and 50+ more</span>
@@ -30,15 +30,15 @@ const Footer: React.FC = () => {
       <div className={styles.footerMainContainer}>
         <div className={styles.footerMain}>
           <div className={styles.footerSocials}>
-            {socials.map(item => (
+            {socialLinks.map(item => (
               <a
-                key={item.name}
-                className={`${styles.social} ${styles[item.name]}`}
-                href={item.link}
+                key={item.platform}
+                className={`${styles.social} ${styles[item.platform]}`}
+                href={item.url}
                 target="__blank"
                 rel="noopener noreferrer"
               >
-                <item.Icon className={styles.socialIcon} />
+                <item.icon className={styles.socialIcon} />
               </a>
             ))}
           </div>

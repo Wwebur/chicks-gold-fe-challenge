@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 import { CartDropdown, CardGrid, Filters, Header, Footer } from './components';
 
